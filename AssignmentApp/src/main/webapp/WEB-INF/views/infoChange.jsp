@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.bean.HumanResourcesBeans"%>
+<%@ page import="model.bean.HumanResourcesBeans, java.util.ArrayList, java.util.List, model.map.JobTitleMap, model.map.AffiliationMap, model.map.GenderMap"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,24 +53,61 @@
 								<td>Gender</td>
 								<td>
 									<select name="gender" class="form-control">
-										<option hidden>Please choose</option>
-										<option value="0">No answer</option>
-										<option value="1">Female</option>
-										<option value="2">Male</option>
-									</select>
+									<%
+									ArrayList<Integer> genderList = (ArrayList<Integer>) request.getAttribute("genderList");
+									%>
+									<%
+									for (Integer beans : genderList) {
+									%>
+										<%
+										if (beans == HRinfo.getGender()) {
+										%>
+											<option selected value="<%= beans %>">
+												<%= GenderMap.getGender(beans) %>
+											</option>
+										<%
+										} else {
+										%>
+											<option value="<%= beans %>">
+												<%= GenderMap.getGender(beans) %>
+											</option>
+										<%
+										}
+										%>
+									<%
+									}
+									%>
+									</select> 
 								</td>
 							</tr>
 							<tr>
 								<td>Affiliation</td>
 								<td>
 									<select name="affiliation" class="form-control">
-										<option hidden>Please choose</option>
-										<option value="0">Legal Deaprtment</option>
-										<option value="1">Accounting Department</option>
-										<option value="2">Marketing Department</option>
-										<option value="3">Public Relations Department</option>
-										<option value="4">Business Department</option>
-										<option value="5">Human Resources Division</option>
+									<%
+									ArrayList<Integer> affiliationList = (ArrayList<Integer>) request.getAttribute("affiliationList");
+									%>
+									<%
+									for (Integer beans : affiliationList) {
+									%>
+										<%
+										if (beans == HRinfo.getAffiliation()) {
+										%>
+											<option selected value="<%= beans %>">
+												<%= AffiliationMap.getAffiliation(beans) %>
+											</option>
+										<%
+										} else {
+										%>
+											<option value="<%= beans %>">
+												<%= AffiliationMap.getAffiliation(beans) %>
+											</option>
+										<%
+										}
+										%>
+									<%
+									}
+									%>
 									</select>
 								</td>
 							</tr>
@@ -78,11 +115,30 @@
 								<td>Job Title</td>
 								<td>
 									<select name="job_title" class="form-control">
-										<option hidden>Please choose</option>
-										<option value="0">No title</option>
-										<option value="1">Chief</option>
-										<option value="2">Section chief</option>
-										<option value="3">Section manager</option>
+									<%
+									ArrayList<Integer> jobTitleList = (ArrayList<Integer>) request.getAttribute("jobTitleList");
+									%>
+									<%
+									for (Integer beans : jobTitleList) {
+									%>
+										<%
+										if (beans == HRinfo.getJobTitle()) {
+										%>
+											<option selected value="<%= beans %>">
+												<%= JobTitleMap.getJobTitle(beans) %>
+											</option>
+										<%
+										} else {
+										%>
+											<option value="<%= beans %>">
+												<%= JobTitleMap.getJobTitle(beans) %>
+											</option>
+										<%
+										}
+										%>
+									<%
+									}
+									%>
 									</select>
 								</td>
 							</tr>

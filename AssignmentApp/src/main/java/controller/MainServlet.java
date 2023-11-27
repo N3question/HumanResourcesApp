@@ -30,6 +30,8 @@ public class MainServlet extends HttpServlet {
 		
         // セッションから取得したusernameでログイン状態のチェックを行う
         if (sessionUserInfo != null && userJobTitle >= 2) {
+        	String userName = loginuserInfo.getName();
+        	request.setAttribute("userName", userName);
 		    ArrayList<HumanResourcesBeans> HRList = HRModel.HRSelectAll();
 		    request.setAttribute("HRList", HRList);
             String view = "/WEB-INF/views/main.jsp";

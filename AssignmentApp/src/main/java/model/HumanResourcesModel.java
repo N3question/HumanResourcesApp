@@ -68,4 +68,22 @@ public class HumanResourcesModel {
 		HumanResourcesDao humanResourcesDao = new HumanResourcesDao();
 		humanResourcesDao.deleteUserInfo(HRid);
 	}
+	
+	public ArrayList<Integer> getJobTitleAll() {
+		HumanResourcesDao humanResourcesDao = new HumanResourcesDao();
+		ArrayList<Integer> jobTitle = humanResourcesDao.getJobTitleAll();
+		return jobTitle;
+	}
+	
+	public ArrayList<Integer> getAffiliationAll() {
+		HumanResourcesDao humanResourcesDao = new HumanResourcesDao();
+		ArrayList<Integer> affiliation = humanResourcesDao.getAffiliationAll();
+		return affiliation;
+	}
+	
+	public ArrayList<Integer> getGenderAll() {
+		HumanResourcesDao humanResourcesDao = new HumanResourcesDao();
+		ArrayList<Integer> gender = humanResourcesDao.getGenderAll();
+		return gender;
+	}
 }

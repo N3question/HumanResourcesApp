@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, java.util.List, model.bean.HumanResourcesBeans"%>
+<%@ page import="java.util.ArrayList, java.util.List, model.bean.HumanResourcesBeans, model.map.JobTitleMap, model.map.AffiliationMap, model.map.GenderMap"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +27,10 @@
 							</li>
 							</li>
 							<li>
+								<% String userName = (String)request.getAttribute("userName"); %>
+								<small><%= userName %> is now logging in.</small>
+							</li>
+							<li>
 								<a href="logout">Logout</a>
 							</li>
 							<li>
@@ -50,8 +54,8 @@
 						<th>Gender</th>
 						<th>Affiliation</th>
 						<th>Job Title</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th></th>
+						<th></th>
 					</tr>
 					<!-- Beansで定義しているメソッド()の引数があるかないかを覚えておく。 -->
 					<% 
@@ -65,9 +69,9 @@
 						    <td><%= HR.getMemberId() %></td>
 						    <td><%= HR.getName() %></td>
 						    <td><%= HR.getEmail() %></td>
-						    <td><%= HR.getGender() %></td>
-						    <td><%= HR.getAffiliation() %></td>
-						    <td><%= HR.getJobTitle() %></td>
+						    <td><%= GenderMap.getGender(HR.getGender()) %></td>
+						    <td><%= AffiliationMap.getAffiliation(HR.getAffiliation()) %></td>
+						    <td><%= JobTitleMap.getJobTitle(HR.getJobTitle()) %></td>
 						    <td>
 						    	<a href='info_change?id=<%= HR.getId() %>'>
 						    		<i class="bi bi-pencil-square"></i>
@@ -86,5 +90,12 @@
 			</div>
 		</div>
     </div>
+    <script type="text/javascript">
+    window.history.pushState(null, null, null);
+    window.addEventListener("popstate", function() {
+      window.history.pushState(null, null, null);
+      return;
+    });
+    </script>
 </body>
 </html>

@@ -30,11 +30,22 @@ public class InfoChangeServlet extends HttpServlet {
     			int id = Integer.parseInt(request.getParameter("id"));
     			HumanResourcesModel HRModel = new HumanResourcesModel();
             	HRModel.HRSelect(id, request);
+            	// jobTitleを取得
+            	ArrayList<Integer> jobTitleList = HRModel.getJobTitleAll();
+        		request.setAttribute("jobTitleList", jobTitleList);
+        		// affiliationを取得
+        		ArrayList<Integer> affiliationList = HRModel.getAffiliationAll();
+        		request.setAttribute("affiliationList", affiliationList);
+        		// genderを取得
+        		ArrayList<Integer> genderList = HRModel.getGenderAll();
+        		request.setAttribute("genderList", genderList);
             }
             catch (NumberFormatException ex){
                 ex.printStackTrace();
+            }catch (Exception e) {
+            	 e.printStackTrace();
             }
-//        	
+     	
             String view = "/WEB-INF/views/infoChange.jsp";
             request.getRequestDispatcher(view).forward(request, response);
         } else {

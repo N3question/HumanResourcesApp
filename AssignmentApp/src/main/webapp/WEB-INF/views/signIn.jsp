@@ -28,11 +28,17 @@
 							<label class="form-label">Password</label>
 							<input type="password" name="password" class="form-control">
 						</div>
-						<input type="submit" value="Login" class="btn btn-dark submit w-100">
+						<button type="submit" class="btn btn-dark submit w-100">Login</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- <script type="text/javascript">
+	const submit = document.getElementById('submit');
+	submit.addEventListener('click', function(){
+	    location.replace('main');
+	});
+	</script> -->
 </body>
 </html>

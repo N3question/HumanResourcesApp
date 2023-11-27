@@ -84,7 +84,7 @@ public class HumanResourcesDao {
     }
 	
 	public HumanResourcesBeans getUser(int memberId, String password) {
-		HumanResourcesBeans humanResourcesBeans = new HumanResourcesBeans();
+		HumanResourcesBeans humanResourcesBeans = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -99,6 +99,7 @@ public class HumanResourcesDao {
             ResultSet result = statement.executeQuery();
 
             while(result.next()) {
+            	humanResourcesBeans = new HumanResourcesBeans();
             	int id = result.getInt("id");
             	int member_id = result.getInt("member_id");
             	// TODO nameはsessionの中から除外する
@@ -209,5 +210,71 @@ public class HumanResourcesDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+	
+	public ArrayList<Integer> getJobTitleAll() {
+        ArrayList<Integer> empList = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+        }
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+        	String SQL = "SELECT job_title FROM human_resources_infos GROUP BY job_title";
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            ResultSet result = statement.executeQuery();
+            
+            while (result.next()) {
+                int jobTitle = result.getInt("job_title");
+                empList.add(jobTitle);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return empList;
+    }
+	
+	public ArrayList<Integer> getAffiliationAll() {
+        ArrayList<Integer> empList = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+        }
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+        	String SQL = "SELECT affiliation FROM human_resources_infos GROUP BY affiliation";
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            ResultSet result = statement.executeQuery();
+            
+            while (result.next()) {
+                int affiliation = result.getInt("affiliation");
+                empList.add(affiliation);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return empList;
+    }
+	
+	public ArrayList<Integer> getGenderAll() {
+        ArrayList<Integer> empList = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+        }
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+        	String SQL = "SELECT gender FROM human_resources_infos GROUP BY gender";
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            ResultSet result = statement.executeQuery();
+            
+            while (result.next()) {
+                int gender = result.getInt("gender");
+                empList.add(gender);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return empList;
     }
 }

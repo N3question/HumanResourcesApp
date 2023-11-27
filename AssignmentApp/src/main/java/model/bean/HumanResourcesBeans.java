@@ -25,6 +25,10 @@ public class HumanResourcesBeans implements Serializable {
 		this.password = password;
 		this.administratorFlag = administratorFlag;
  	}
+	public HumanResourcesBeans(int jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+	
 	public int getId() {
 		return id;
 	}

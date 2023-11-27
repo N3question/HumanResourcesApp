@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.bean.HumanResourcesBeans"%>
+<%@ page import="model.bean.HumanResourcesBeans, model.map.JobTitleMap, model.map.AffiliationMap, model.map.GenderMap"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,15 +46,15 @@
 						</tr>
 						<tr>
 							<td>Gender</td>
-							<td><%= userInfo.getGender() %></td>
+							<td><%= GenderMap.getGender(userInfo.getGender()) %></td>
 						</tr>
 						<tr>
 							<td>Affiliation</td>
-							<td><%= userInfo.getAffiliation() %></td>
+							<td><%= AffiliationMap.getAffiliation(userInfo.getAffiliation()) %></td>
 						</tr>
 						<tr>
 							<td>Job Title</td>
-							<td><%= userInfo.getJobTitle() %></td>
+							<td><%= JobTitleMap.getJobTitle(userInfo.getJobTitle()) %></td>
 						</tr>
 					</table>
 					<a href="info_destroy?id=<%= userInfo.getId() %>" class="btn btn-danger">Delete</a>
