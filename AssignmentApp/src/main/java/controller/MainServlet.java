@@ -29,7 +29,7 @@ public class MainServlet extends HttpServlet {
 		int userJobTitle = loginuserInfo.getJobTitle();
 		
         // セッションから取得したusernameでログイン状態のチェックを行う
-        if (sessionUserInfo != null && userJobTitle >= 2) {
+        if (sessionUserInfo != null && userJobTitle >= 3) {
         	String userName = loginuserInfo.getName();
         	request.setAttribute("userName", userName);
 		    ArrayList<HumanResourcesBeans> HRList = HRModel.HRSelectAll();

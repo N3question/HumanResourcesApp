@@ -15,10 +15,6 @@
 			<div class="outbox">
 				<div class="form">
 					<h3 class="mb-3">Login</h3>
-					<%-- <% String err_message = (String) session.getAttribute("err_message"); %>
-					<% if (err_message != null) { %>
-			    		<p class="success"><%= err_message %></p>
-			    	<% } %> --%>
 					<form action="signin" method="post" class="form-controll">
 						<div class="mb-3">
 							<label class="form-label">Member ID</label>
@@ -34,11 +30,5 @@
 			</div>
 		</div>
 	</div>
-	<!-- <script type="text/javascript">
-	const submit = document.getElementById('submit');
-	submit.addEventListener('click', function(){
-	    location.replace('main');
-	});
-	</script> -->
 </body>
 </html>

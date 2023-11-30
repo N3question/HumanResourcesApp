@@ -14,19 +14,19 @@ class MapDaoTest {
 	public void testAffiliationMap() {
 		// staticの修飾子をつけているからnewしなくていい
 		// AffiliationMap AFM = new AffiliationMap();
-		String result = AffiliationMap.getAffiliation(3);
+		String result = AffiliationMap.getAffiliation(4);
 		assertEquals("Public Relations Department", result);
 	}
 	
 	@Test
 	void testGenderMap() {
-		String result = GenderMap.getGender(2);
+		String result = GenderMap.getGender(3);
 		assertEquals("Male", result);
 	}
 	
 	@Test
 	void testJobTitleMap() {
-		String result = JobTitleMap.getJobTitle(0);
+		String result = JobTitleMap.getJobTitle(1);
 		assertEquals("No title", result);
 	}
 }

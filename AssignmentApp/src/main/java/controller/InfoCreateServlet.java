@@ -39,8 +39,11 @@ public class InfoCreateServlet extends HttpServlet {
 			int gender = Integer.parseInt(request.getParameter("gender"));
 			int affiliation = Integer.parseInt(request.getParameter("affiliation"));
 			int jobTitle = Integer.parseInt(request.getParameter("job_title"));
+			
+			// コンストラクタの引数の順番で記述する
+			HumanResourcesBeans HRBeans = new HumanResourcesBeans(name, email, gender, affiliation, jobTitle, memberId, password, administratorFlag);
 			// INSERT処理
-			HRModel.userInfoInsert(memberId, name, email, gender, affiliation, jobTitle, administratorFlag, password);
+			HRModel.userInfoInsert(HRBeans);
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();

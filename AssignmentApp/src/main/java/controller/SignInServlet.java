@@ -49,7 +49,7 @@ public class SignInServlet extends HttpServlet {
 		HumanResourcesBeans userInfo = HRModel.userInfoSelect(sessionUserInfo.getId());
 		int userJobTitle = userInfo.getJobTitle();
 		
-			if (userJobTitle >= 2) {
+			if (userJobTitle >= 3) {
 				String userName = sessionUserInfo.getName();
 	        	request.setAttribute("userName", userName);
 			    ArrayList<HumanResourcesBeans> HRList = HRModel.HRSelectAll();
@@ -57,7 +57,7 @@ public class SignInServlet extends HttpServlet {
 			    request.setAttribute("message", "Welcome " + sessionUserInfo.getName() + " !");
 				String view = "/WEB-INF/views/main.jsp";
 			    getServletContext().getRequestDispatcher(view).forward(request, response);
-			} else if (userJobTitle < 2) {
+			} else if (userJobTitle < 3) {
 	        	request.setAttribute("userInfo", userInfo);
 				request.setAttribute("message", "Welcome " + sessionUserInfo.getName() + " !");
 				String view = "/WEB-INF/views/myPage.jsp";

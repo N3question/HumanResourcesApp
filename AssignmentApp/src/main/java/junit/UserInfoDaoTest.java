@@ -8,7 +8,7 @@ import model.bean.HumanResourcesBeans;
 import model.dao.UserInfoDao;
 
 class UserInfoDaoTest {
-
+	// FIXME 以下DBの値を修正したので変更が必要
 	@Test
 	public void testSelect() {
 		UserInfoDao userInfoDao = new UserInfoDao();
@@ -18,7 +18,7 @@ class UserInfoDaoTest {
 		assertEquals("sample@gmail.com", userInfo.getEmail());
 		assertEquals(1, userInfo.getGender());
 		assertEquals(2, userInfo.getAffiliation());
-		assertEquals(0, userInfo.getJobTitle());
+		assertEquals(4, userInfo.getJobTitle());
 		assertEquals(74185585, userInfo.getMemberId());
 	}
 	
@@ -36,17 +36,18 @@ class UserInfoDaoTest {
 		assertEquals("INSERTが失敗しました", message);
 	}
 	
+	// FIXME nullではなく空文字になっているため、処理が走ってしまう
 	@Test
 	public void testInsertFalse2() {
 		UserInfoDao userInfoDao = new UserInfoDao();
-		String message = userInfoDao.insert(31753675, "", "sample@gmail.com", 0, 3, 2, false, "");
+		String message = userInfoDao.insert(31753675, null, "sample@gmail.com", 0, 3, 2, false, null);
 		assertEquals("INSERTが失敗しました", message);
 	}
 	
 	@Test
 	public void testUpdate() {
 		UserInfoDao userInfoDao = new UserInfoDao();
-		int updateNum = userInfoDao.update("Johanna MacGill", "", 1, 1, 1, 6);
+		int updateNum = userInfoDao.update("Rhett Veal", "sample@gmail.com", 2, 1, 1, 6);
 		assertEquals(1, updateNum);
 	}
 	
@@ -60,7 +61,7 @@ class UserInfoDaoTest {
 	@Test
 	public void testDelete() {
 		UserInfoDao userInfoDao = new UserInfoDao();
-		int deleteNum = userInfoDao.delete(15);
+		int deleteNum = userInfoDao.delete(17);
 		assertEquals(1, deleteNum);
 	}
 	

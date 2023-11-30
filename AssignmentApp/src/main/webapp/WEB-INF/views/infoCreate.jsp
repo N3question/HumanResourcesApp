@@ -47,9 +47,9 @@
 								<td>
 									<select name="gender" class="form-control">
 										<option hidden>Please choose</option>
-										<option value="0">No answer</option>
-										<option value="1">Female</option>
-										<option value="2">Male</option>
+										<option value="1">No answer</option>
+										<option value="2">Female</option>
+										<option value="3">Male</option>
 									</select>
 								</td>
 							</tr>
@@ -58,12 +58,12 @@
 								<td>
 									<select name="affiliation" class="form-control">
 										<option hidden>Please choose</option>
-										<option value="0">Legal Deaprtment</option>
-										<option value="1">Accounting Department</option>
-										<option value="2">Marketing Department</option>
-										<option value="3">Public Relations Department</option>
-										<option value="4">Business Department</option>
-										<option value="5">Human Resources Division</option>
+										<option value="1">Legal Deaprtment</option>
+										<option value="2">Accounting Department</option>
+										<option value="3">Marketing Department</option>
+										<option value="4">Public Relations Department</option>
+										<option value="5">Business Department</option>
+										<option value="6">Human Resources Division</option>
 									</select>
 								</td>
 							</tr>
@@ -72,10 +72,10 @@
 								<td>
 									<select name="job_title" class="form-control">
 										<option hidden>Please choose</option>
-										<option value="0">No title</option>
-										<option value="1">Supervisor</option>
-										<option value="2">Section chief</option>
-										<option value="3">Section manager</option>
+										<option value="1">No title</option>
+										<option value="2">Supervisor</option>
+										<option value="3">Section chief</option>
+										<option value="4">Section manager</option>
 									</select>
 								</td>
 							</tr>

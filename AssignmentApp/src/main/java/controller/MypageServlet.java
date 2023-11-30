@@ -29,9 +29,6 @@ public class MypageServlet extends HttpServlet {
     		HumanResourcesBeans userInfo = humanResourcesModel.userInfoSelect(sessionUserInfo.getId());
         	request.setAttribute("userInfo", userInfo);
         	
-//        	Map<String,Integer> map = new HashMap<>();
-//        	map.put("リンゴ",80);
-        	
             String view = "/WEB-INF/views/myPage.jsp";
             request.getRequestDispatcher(view).forward(request, response);
         } else {

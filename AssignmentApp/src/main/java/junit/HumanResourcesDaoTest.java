@@ -15,7 +15,7 @@ class HumanResourcesDaoTest {
 	public void testSelectAll() {
 		HumanResourcesDao HRDao = new HumanResourcesDao();
 		ArrayList<HumanResourcesBeans> HRlist = HRDao.selectAll();
-		assertEquals(6, HRlist.size());
+		assertEquals(8, HRlist.size());
 	}
 	
 	@Test

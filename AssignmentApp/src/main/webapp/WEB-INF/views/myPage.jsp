@@ -20,7 +20,7 @@
 					%>
 					<div class="d-flex justify-content-between">
 						<h3 class="mb-3">My page</h3>
-						<% if (userInfo.getJobTitle() >= 2) { %>
+						<% if (userInfo.getJobTitle() >= 3) { %>
 							<h3>
 								<a href="main" class="back-icon">
 									<i class="bi bi-backspace"></i>
@@ -62,7 +62,7 @@
 							<td><%= JobTitleMap.getJobTitle(userInfo.getJobTitle()) %></td>
 						</tr>
 					</table>
-					<% if (userInfo.getJobTitle() < 2) { %>
+					<% if (userInfo.getJobTitle() < 3) { %>
 			    		<a href="logout" class="btn btn-dark w-100 mt-5">Logout</a>
 			    	<% } else {%>
 					<a href="info_change?id=<%= userInfo.getId() %>" class="btn btn-dark w-100 mt-5">Edit info</a>

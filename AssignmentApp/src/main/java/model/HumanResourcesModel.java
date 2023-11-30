@@ -47,8 +47,15 @@ public class HumanResourcesModel {
 		userInfoDao.update(name, email, gender, affiliation, jobTitle, HRid);
 	}
 	
-	public void userInfoInsert(int memberId, String name, String email, int gender, int affiliation, int jobTitle, boolean administratorFlag, String password) {
-		String hashedPassword = Hash.hashingPassword(password);
+	public void userInfoInsert(HumanResourcesBeans HRBeans) {
+		int memberId = HRBeans.getMemberId();
+		String name = HRBeans.getName();
+		String email = HRBeans.getEmail();
+		int gender = HRBeans.getGender();
+		int affiliation = HRBeans.getAffiliation();
+		int jobTitle = HRBeans.getJobTitle();
+		boolean administratorFlag = HRBeans.isAdministratorFlag();
+		String hashedPassword = Hash.hashingPassword(HRBeans.getPassword());
 		UserInfoDao userInfoDao = new UserInfoDao();
 		userInfoDao.insert(memberId, name, email, gender, affiliation, jobTitle, administratorFlag, hashedPassword);
 	}
